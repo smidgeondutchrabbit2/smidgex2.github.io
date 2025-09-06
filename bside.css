@@ -1,90 +1,137 @@
+/* Base */
 body {
-	color: #FFF;
-	background-color: #000;
-    font-family: monospace;
-    font-size: 15px;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  background: linear-gradient(135deg, #f5f5f7, #e8ebf0);
+  color: #1d1d1f;
 }
 
+/* Headings */
 h1 {
-	border-style: outset;
-	border-color: #000;
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 0 0 1rem;
+  color: #000;
 }
 
 h3 {
-	font-variant: small-caps;
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 1.5rem 0 0.5rem;
+  color: #1d1d1f;
 }
 
+/* Links */
 a {
-	color: #8F8;
-	text-decoration: none;
+  color: #0071e3;
+  text-decoration: none;
+  transition: color 0.2s ease;
 }
 a:hover {
-	color: #8F8;
-	text-decoration: underline;
+  text-decoration: underline;
 }
 
+/* Liquid Glass Base */
+.liquid-glass {
+  background: rgba(255, 255, 255, 0.65);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid rgba(60,60,67,0.16);
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+}
+
+/* Cookie banner */
 .cookies {
-	margin: auto;
-	width: 98%;
-	background-color: #222;
-	border-style: outset;
-	border-color: #666;
-	text-align:center;
-	padding-top: 10px;
-	padding-bottom: 10px;
+  margin: auto;
+  width: 96%;
+  text-align: center;
+  padding: 12px 16px;
+  font-size: 0.95rem;
+  color: #1d1d1f;
 }
+.cookies.liquid-glass {}
 
+/* Main content */
 .content {
-	width: 1000px;
-	margin: auto;
-	margin-top: 100px;
-	padding: 20px;
-	background-color: #222;
-	border-style: outset;
-	border-color: #666;
+  width: min(1000px, 92%);
+  margin: 100px auto 40px;
+  padding: 24px;
 }
+.content.liquid-glass {}
 
+/* Blog panel */
 .blog-panel {
-	width: 900px;
-	height: 206px;
-	margin: auto;
-	margin-top:20px;
-	color: #FFF;
-	background-color: #000;
-	border-style: inset;
-	border-color: #666;
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  width: min(900px, 95%);
+  margin: 20px auto;
+  overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.blog-panel.liquid-glass {}
+.blog-panel:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.15);
 }
 
 .blog-image {
-	width: 200px;
-	height: 200px;
-	float: left;
-	border-style: outset;
-	border-color: #666;
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  flex-shrink: 0;
+  border-radius: 12px;
 }
 
 .blog-desc {
-	width: 648px;
-	height: 180px;
-	padding: 20px;
-	padding-top: 0px;
-	float: right;
-	border-style: outset;
-	border-color: #666;
+  flex: 1;
+  padding: 16px 20px;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: inherit;
 }
 
+/* Blog entry detail */
 .blog-entry {
-	padding: 40px;
-	padding-top: 0px;
-	background-color: #000;
-	margin: auto;
-	border-style: inset;
-	border-color: #666;
+  padding: 32px;
+  margin: 40px auto;
 }
+.blog-entry.liquid-glass {}
 
 .blog-entry-image {
-	display: block;
-	margin: auto;
-	border-style: inset;
-	border-color: #666;
+  display: block;
+  margin: 0 auto 24px;
+  max-width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+}
+
+/* Dark Mode */
+@media (prefers-color-scheme: dark) {
+  body {
+    background: linear-gradient(135deg, #1c1c1e, #2c2c2e);
+    color: #f5f5f7;
+  }
+
+  h1, h3 {
+    color: #fff;
+  }
+
+  a {
+    color: #0a84ff;
+  }
+
+  .liquid-glass {
+    background: rgba(28, 28, 30, 0.55);
+    border: 1px solid rgba(255,255,255,0.12);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.6);
+  }
+
+  .cookies {
+    color: #f5f5f7;
+  }
 }
